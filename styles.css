@@ -6,6 +6,8 @@ body {
 
 h1 {
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .turn {
@@ -13,7 +15,33 @@ h1 {
     font-weight: 600;
 }
 
-.container {
+.board-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 100px;
+    padding: 32px;
+    font-size: 1.25rem;
+}
+
+.board-title div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.board-title h1 {
+    flex: 1;
+}
+
+input[type="text"] {
+    text-align: center;
+    font-size: 1.25rem;
+    padding: 6px;
+}
+
+.board-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,7 +49,7 @@ h1 {
 }
 
 .board {
-    --board-dim: calc(clamp(40vw, 500px, 80vw));
+    --board-dim: calc(clamp(40vw, 600px, 70vw));
     display: grid;
     grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
     height: var(--board-dim);
@@ -30,11 +58,16 @@ h1 {
 }
 
 .square {
-    font-size: calc(5vh + 5vw);
+    font-size: 5rem;
     font-weight: 600;
 }
 
 dialog * {
     font-size: 1.5rem;
     font-weight: 500;
+}
+
+#start {
+    font-size: 1.25rem;
+    padding: 8px 32px;
 }

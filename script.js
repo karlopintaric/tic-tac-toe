@@ -184,7 +184,7 @@ function GameController(
         board.createBoard();
         activePlayer = players[0];
         gameStatus = 'active';
-        
+
         printNewRound()
     }
 
@@ -200,12 +200,14 @@ function GameController(
 }
 
 (function ScreenController() {
-    const game = GameController();
+    let game;
+
     const boardDiv = document.querySelector('.board');
     const playerTurnDiv = document.querySelector('.turn');
     const resultDialog = document.querySelector('dialog');
     const resultText = resultDialog.querySelector('p');
     const resetButton = resultDialog.querySelector('#reset');
+    const startButton = document.querySelector('#start');
 
     const render = () => {
         // Reset board display
@@ -242,7 +244,7 @@ function GameController(
         });
 
         // Display active player name
-        playerTurnDiv.textContent = activePlayer.name;
+        playerTurnDiv.textContent = `${activePlayer.name}'s turn`;
 
         // Check if game ended and display result
         if (checkIfGameEnded()) {
@@ -285,9 +287,21 @@ function GameController(
         render();
     }
 
-    boardDiv.addEventListener('click', boardClickHandler);
-    resetButton.addEventListener('click', resetGame);
+    const startGame = (e) => {
+        const playerOneNameInput = document.querySelector('#player-one-name');
+        const playerTwoNameInput = document.querySelector('#player-two-name');
 
-    render();
+        game = GameController(playerOneNameInput.value, playerTwoNameInput.value);
+        render();
+
+        boardDiv.addEventListener('click', boardClickHandler);
+        resetButton.addEventListener('click', resetGame);
+
+        e.target.remove()
+        playerOneNameInput.disabled = true;
+        playerTwoNameInput.disabled = true;
+    }
+
+    startButton.addEventListener('click', startGame);
 
 })();
