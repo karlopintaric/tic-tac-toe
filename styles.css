@@ -1,0 +1,40 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.turn {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.board {
+    --board-dim: calc(clamp(60vh, 700px, 90vh));
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    height: var(--board-dim);
+    width: var(--board-dim);
+    border: 1px solid black;
+}
+
+.square {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+dialog * {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
