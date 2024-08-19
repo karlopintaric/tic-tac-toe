@@ -21,7 +21,7 @@ h1 {
 }
 
 .board {
-    --board-dim: calc(clamp(60vh, 700px, 90vh));
+    --board-dim: calc(clamp(40vw, 500px, 80vw));
     display: grid;
     grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
     height: var(--board-dim);
@@ -30,7 +30,7 @@ h1 {
 }
 
 .square {
-    font-size: 2rem;
+    font-size: calc(5vh + 5vw);
     font-weight: 600;
 }
 
