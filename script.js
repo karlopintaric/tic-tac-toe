@@ -68,8 +68,8 @@ function Player(name, mark) {
 }
 
 function GameController(
-    playerOneName = 'Player One',
-    playerTwoName = 'Player Two'
+    playerOneName,
+    playerTwoName
 ) {
 
     const board = GameBoard();
@@ -291,7 +291,9 @@ function GameController(
         const playerOneNameInput = document.querySelector('#player-one-name');
         const playerTwoNameInput = document.querySelector('#player-two-name');
 
-        game = GameController(playerOneNameInput.value, playerTwoNameInput.value);
+        game = GameController(
+            playerOneNameInput.value || 'Player One', 
+            playerTwoNameInput.value) || 'Player Two';
         render();
 
         boardDiv.addEventListener('click', boardClickHandler);
